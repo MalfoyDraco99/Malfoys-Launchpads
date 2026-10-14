@@ -1,0 +1,8 @@
+name: MalfoysLaunchpads
+version: '${version}'
+
+main: me.malfoy.malfoysLaunchpads.MalfoysLaunchpads
+api-version: '26.2'
+load: POSTWORLD
+
+authors: [ malfoy ]
