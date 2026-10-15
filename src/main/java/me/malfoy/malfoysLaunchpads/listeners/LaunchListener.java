@@ -1,6 +1,7 @@
 package me.malfoy.malfoysLaunchpads.listeners;
 
 import me.malfoy.malfoysLaunchpads.MalfoysLaunchpads;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -9,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import static java.lang.Math.sqrt;
@@ -44,7 +46,7 @@ public class LaunchListener implements Listener {
             return;
         }
         // get important crap from config
-        int multi = plugin.getConfig().getInt("velocity-multiplier",2);
+        double multi = plugin.getConfig().getDouble("velocity-multiplier",2);
         String message = plugin.getConfig().getString("launch-message", "<gold>Whoooosh!");
         // applies velocity, sound, ect.
         Player player = event.getPlayer();
@@ -52,6 +54,5 @@ public class LaunchListener implements Listener {
         player.setVelocity(velocity);
         player.sendRichMessage(message);
         player.getWorld().playSound(player.getLocation(),Sound.ENTITY_FIREWORK_ROCKET_LAUNCH,3,1);
-
     }
 }
