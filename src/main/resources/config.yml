@@ -3,4 +3,4 @@ pressure-plate: STONE_PRESSURE_PLATE # Must be a pressure plate (ALL CAPS)
 bottom-block: STONE # Must be a block (ALL CAPS)
 velocity-multiplier: 1.5 # Amount to multiply players current direction velocity by
 message: "<gold>Whoooosh!" # Messsage sent to user using MiniMessage formatting
-world: world #The name of the world where you want launchpads to work in
+world: world # The name of the world where you want launchpads to work in

@@ -5,4 +5,9 @@ main: me.malfoy.malfoysLaunchpads.MalfoysLaunchpads
 api-version: '26.2'
 load: POSTWORLD
 
+permissions:
+  launchpad.reload:
+    description: Allows people with this permission to reload the plugin
+    default: op
+
 authors: [ malfoy ]
