@@ -11,6 +11,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
+import static java.lang.Math.sqrt;
+
 public class LaunchListener implements Listener {
     private final MalfoysLaunchpads plugin;
 
@@ -46,7 +48,7 @@ public class LaunchListener implements Listener {
         String message = plugin.getConfig().getString("launch-message", "<gold>Whoooosh!");
         // applies velocity, sound, ect.
         Player player = event.getPlayer();
-        Vector velocity = player.getLocation().getDirection().multiply(1.5).setY(1);
+        Vector velocity = player.getLocation().getDirection().multiply(multi).setY(sqrt(multi));
         player.setVelocity(velocity);
         player.sendRichMessage(message);
         player.getWorld().playSound(player.getLocation(),Sound.ENTITY_FIREWORK_ROCKET_LAUNCH,3,1);
