@@ -25,12 +25,17 @@ public class LaunchListener implements Listener {
     @EventHandler
     public void onMove(PlayerInteractEvent event){
         Block block = event.getClickedBlock();
-
         // exits if not good
         if (event.getAction() != Action.PHYSICAL || block == null || block.getType() == Material.AIR) {
             return;
         }
 
+        Player player = event.getPlayer();
+        String configgeworld = plugin.getConfig().getString("world","world");
+        // exits if world is wrong
+        if (!(player.getWorld().getName().equalsIgnoreCase(configgeworld))){
+            return;
+        }
 
         Material configgedPlate = Material.matchMaterial(plugin.getConfig().getString("pressure-plate","STONE_PRESSURE_PLATE"));
         // exits if plate is wrong
@@ -49,7 +54,6 @@ public class LaunchListener implements Listener {
         double multi = plugin.getConfig().getDouble("velocity-multiplier",2);
         String message = plugin.getConfig().getString("launch-message", "<gold>Whoooosh!");
         // applies velocity, sound, ect.
-        Player player = event.getPlayer();
         Vector velocity = player.getLocation().getDirection().multiply(multi).setY(sqrt(multi));
         player.setVelocity(velocity);
         player.sendRichMessage(message);
